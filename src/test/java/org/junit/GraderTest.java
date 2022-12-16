@@ -34,4 +34,14 @@ class GraderTest {
         var grader = new Grader();
         assertEquals('A', grader.determineGrade(99));
     }
+
+    //For negative numbers, where an illegalArgsException is thrown
+    @Test
+    void negativeShouldReturnIllegalArgsException(){
+        var grader = new Grader();
+        assertThrows(IllegalArgumentException.class, () -> {
+            grader.determineGrade(-1);
+        } );
+       // grader.determineGrade(-1); //using this will fail because an exception will be thrown anyways
+    }
 }
